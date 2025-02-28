@@ -1,6 +1,6 @@
 # CMPS 2200  Recitation 04
 
-**Name (Team Member 1):**_________________________  
+**Name (Team Member 1):**_____Anh Pham____________________  
 **Name (Team Member 2):**_________________________
 
 
@@ -38,6 +38,9 @@ To use this function to count words, you'll need to implement your own `map_f` a
 
 **Enter answer here**
 
+Since we assume a word w appears n times, the algorithm additional work is n-1. Although these additions are executed in parallel, the number of operations is the same as sequential approach since parallelism doesn't change total work. Hence, the work of the reduce function is O(n).
+
+Since the number of elements are halved in each step due to parallelism, the levels of computation is logn. Hence, the span is  O(logn)
 
 5. Why are we going through all this trouble? Couldn't I just use this function to count words?
 
@@ -53,6 +56,8 @@ for doc in docs:
 What is the problem that prevents us from easily parallelizing this solution?
 
 **Enter answer here**
+
+Using a dictionary for word counting in parallel computing might cause incorrect counts and errors because it relies on modifying shared state across multiple iterations. Hence, conflict will arise if multiple threads were to process documents at the same time and update the dictionary. Using locks to prevent this will make make the time to execute increase, reducing the efficiency of parallel computing. 
 
 
 ## Part 2: Sentiment analysis

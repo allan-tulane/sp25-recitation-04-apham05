@@ -1,4 +1,4 @@
-from main import *   
+from main import word_count_map, word_count_reduce, run_map_reduce, sentiment_map   
 
 
 ### PART One
@@ -6,7 +6,6 @@ from main import *
 def test_word_count_map():
     assert word_count_map('i am sam i am') == \
            [('i', 1), ('am', 1), ('sam', 1), ('i', 1), ('am', 1)]
-
     
 def test_word_count_reduce():
     assert word_count_reduce(['i', [1,1,1]]) == ('i', 3)
